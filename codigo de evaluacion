@@ -1,0 +1,32 @@
+function esInteligente(numero) {
+    let factores = 0;
+    for (let i = 1; i <= numero; i++) {
+        if (numero % i === 0) {
+            factores++;
+        }
+    }
+    return factores % 2 !== 0;
+}
+
+function generarNumerosAleatorios(cantidad) {
+    const numeros = [];
+    for (let i = 0; i < cantidad; i++) {
+        numeros.push(Math.floor(Math.random() * 100) + 1); // Números entre 1 y 100
+    }
+    return numeros;
+}
+
+function validarNumeros(numeros) {
+    for (const numero of numeros) {
+        console.log(esInteligente(numero) ? "Si" : "No");
+    }
+}
+
+function main() {
+    const cantidad = parseInt(prompt("Ingrese la cantidad de números a validar:"));
+    const numeros = generarNumerosAleatorios(cantidad);
+    console.log("Números a validar:", numeros.join(", "));
+    validarNumeros(numeros);
+}
+
+main();
